@@ -1,0 +1,8 @@
+name: NoInventory
+author: SchachSebastian
+version: '${project.version}'
+main: io.github.schachsebastian.noinventory.main.PluginInitializer
+api-version: 1.19
+commands:
+  slotlimit:
+    description: slotlimit [limit] - Shows or defines the number of inventory slots, a player can use!
