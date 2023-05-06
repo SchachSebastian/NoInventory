@@ -3,6 +3,7 @@ package io.github.schachsebastian.noinventory.handler;
 import io.github.schachsebastian.noinventory.inventory.InventoryBlocker;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
@@ -28,5 +29,9 @@ public class PlayerHandler implements Listener {
 		if (InventoryBlocker.isBlockItem(event.getOffHandItem())) {
 			event.setCancelled(true);
 		}
+	}
+	@EventHandler
+	public void onPlayerDeath(PlayerDeathEvent event) {
+		event.getDrops().removeIf(InventoryBlocker::isBlockItem);
 	}
 }
